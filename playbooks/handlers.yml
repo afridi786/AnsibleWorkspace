@@ -1,0 +1,10 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: install apache
+      yum: name=httpd state=installed
+      notify: please start my service
+      
+  handlers:
+    - name: please start my service
+      service: name=httpd state=restarted

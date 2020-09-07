@@ -1,0 +1,5 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: remove mysql
+      yum: name=sql-server state=absent

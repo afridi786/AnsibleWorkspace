@@ -1,0 +1,10 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: install mysql
+      yum: name=mysql-server state=present
+    - name: start mysql server
+      service: name=mysqld state=started
+    - name: open mysql port
+      firewalld: port=3306/tcp state=enabled
+

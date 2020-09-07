@@ -1,0 +1,21 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: install apcahe
+      yum: name=httpd state=latest
+      tags:
+        - myTag1        
+    - name: service start
+      service: name=httpd state=started
+      tags:
+        - myTag2
+    - name: copy html file
+      template:
+        src=/etc/ansible/playbooks/index.html
+        dest=/var/www/html
+      tags:
+        - myTag3
+    - name: service restart
+      service: name=httpd state=restarted        
+      tags:
+        - myTag4

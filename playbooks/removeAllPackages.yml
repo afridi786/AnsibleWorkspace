@@ -1,0 +1,7 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: remove Pkg
+      yum:
+        name: ['httpd','mysql-server','tomcat','nginx']
+        state: absent

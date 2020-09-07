@@ -1,0 +1,10 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: please install firewallpkg
+      yum: name=firewalld state=present update_cache=yes  
+    - name: open port 8080   
+      firewalld: 
+        port: 8080/tcp								
+        state: enabled
+        permanent: yes

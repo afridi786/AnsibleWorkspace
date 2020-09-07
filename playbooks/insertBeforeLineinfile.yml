@@ -1,0 +1,12 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: "insert before regular expression matched"
+      become: yes
+      become_user: root
+      lineinfile:
+        path: /root/file.txt
+        insertbefore: "this is line1"
+        line: "this is line11 changed to line12"
+        state: present
+        backup: yes

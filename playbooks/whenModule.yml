@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+    - name: install apache
+      yum: name=httpd state=installed
+      become: yes
+      when: ansible_facts['distribution'] == "amazonweb"
+    - name: install firewallpkg
+      yum: name=firewalld state=installed
+      become: yes
+      when: ansible_os_family == "flipkartweb"

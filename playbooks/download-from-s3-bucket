@@ -1,0 +1,5 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: 'download file from s3 bucket'
+      get_url: url=https://ansible-file.s3.us-east-2.amazonaws.com/listBox.html dest=/root

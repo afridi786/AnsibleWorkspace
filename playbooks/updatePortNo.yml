@@ -1,0 +1,9 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: apache2 listen on port 8091
+      lineinfile: dest=/etc/httpd/conf/httpd.conf regexp="^Listen 8081" line="Listen 8091" state=present
+    - name: start services
+      service:
+        name=httpd
+        state=started 

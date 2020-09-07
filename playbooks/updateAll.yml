@@ -1,0 +1,8 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: update my system
+      yum: 
+        name: '*' 
+        state: latest
+        exclude: httpd*,mysql-server*

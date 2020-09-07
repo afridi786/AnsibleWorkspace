@@ -1,0 +1,5 @@
+---
+- hosts: all 
+  tasks:
+    - name: please install apache
+      yum: name=httpd state=installed

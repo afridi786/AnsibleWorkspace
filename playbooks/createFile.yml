@@ -1,0 +1,5 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: create file
+      file: path=/root/myfile.txt state=directory

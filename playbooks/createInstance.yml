@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: 'create a ec2 instance'
+      ec2:
+        instance_type: t2.micro
+        group: default
+        wait: yes
+        image: ami-0dacb0c129b49f529
+        vpc_subnet_id: subnet-57c7781b
+        key_name: myKey
+        region: us-east-2
+        count: 1
+        assign_public_ip: yes

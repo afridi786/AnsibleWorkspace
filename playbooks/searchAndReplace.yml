@@ -1,0 +1,12 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: "Replace a line with ansible lineinfile(replaceand add at last)"
+      become: yes
+      become_user: root
+      lineinfile:
+        path: /root/file.txt
+        regexp: "this is line1"
+        line: "this is line123"
+        state: present
+        backup: yes

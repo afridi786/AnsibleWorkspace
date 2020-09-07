@@ -1,0 +1,17 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: 'download java'
+      yum: name=java-1.8.0 state=present
+      
+    - name: 'download apache from internet'
+      get_url: url=http://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.50/bin/apache-tomcat-8.5.50.tar.gz dest=/opt
+      
+    - name: 'unzip the file'
+      unarchive:
+        src: /opt/apache-tomcat-8.5.50.tar.gz
+        dest: /opt
+        remote_src: yes
+
+    - name: 'start tomcat service'
+      command: nohup /opt/apache-tomcat-8.5.50/bin/startup.sh  

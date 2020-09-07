@@ -1,0 +1,5 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: please remove apache
+      yum: name=httpd state=absent

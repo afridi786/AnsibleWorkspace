@@ -1,0 +1,15 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: install apache
+      yum: name=httpd state=installed
+      notify: please start my service
+      
+    - name: install mysql
+      yum: name=mysql-server state=present
+      notify: please start my mysql
+
+  handlers:
+    - name: please start my service
+      service: name=mysql-server state=restarted
+

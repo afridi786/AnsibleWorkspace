@@ -1,0 +1,11 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: "Example1: Validate if a String or line is present in the file"
+      become: yes
+      become_user: root      
+      lineinfile: 
+        path: /root/file.txt
+        line: "this is line11"
+        state: present
+      check_mode: yes

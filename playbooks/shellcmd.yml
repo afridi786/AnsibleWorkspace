@@ -1,0 +1,8 @@
+---
+- hosts: amazonweb
+  become: yes
+  become_user: root # giving access to the user
+  tasks:
+    - name: "create a file"
+      shell: touch /root/shell.txt
+

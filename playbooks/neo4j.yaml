@@ -1,0 +1,14 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: 'download java'
+      yum: name=java-1.8.0 state=present
+    
+    - name: Neo4j Repository Signing Key
+      rpm_key:
+        key: 'http://debian.neo4j.org/neotechnology.gpg.key'
+        state: present
+    - name: Add neo4j repo
+      template:
+        src: /templates/neo4j-repo.j2
+        dest: /etc/yum.repos.d/neo4j.repo

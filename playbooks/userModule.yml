@@ -1,0 +1,10 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: create a group
+      user:
+        name: myUser1
+        state: present
+        password: 'Welcome@123'
+        uid: 500
+        group: mygroup

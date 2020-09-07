@@ -1,0 +1,13 @@
+---
+- hosts: amazonweb
+  tasks: 
+    - name: Install apcahe
+      yum: name=httpd state=latest
+    - name: start services
+      service: 
+        name=httpd
+        state=started
+    - name: copy html file
+      copy:
+        src=/etc/ansible/playbooks/index.html
+        dest=/var/www/html

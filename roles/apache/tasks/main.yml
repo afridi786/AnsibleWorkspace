@@ -1,0 +1,4 @@
+---
+- name: copy abc.txt
+  template: src=/abc.txt dest=/root/
+# tasks file for apache

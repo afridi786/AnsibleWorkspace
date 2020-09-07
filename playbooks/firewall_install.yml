@@ -1,0 +1,5 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: please install firewall pkg
+      yum: name=firewalld state=present update_cache=yes

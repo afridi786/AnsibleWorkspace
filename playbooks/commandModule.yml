@@ -1,0 +1,7 @@
+---
+- hosts: amazonweb
+  become: yes
+  become_user: root # giving access to the user
+  tasks:
+    - name: "checking free memory"
+      command: free -m
